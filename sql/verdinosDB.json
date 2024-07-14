@@ -1,0 +1,31 @@
+{
+    "connections": [
+        {
+            "info": {
+                "role": "",
+                "SavePassword": "true",
+                "OracleConnectionType": "BASIC",
+                "PROXY_TYPE": "USER NAME",
+                "RaptorConnectionType": "Oracle",
+                "sid": "xe",
+                "ExportPasswordMode": "Key",
+                "customUrl": "jdbc:oracle:thin:@localhost:1521:xe",
+                "oraDriverType": "thin",
+                "NoPasswordConnection": "TRUE",
+                "hostname": "localhost",
+                "password": "Qnm9+GsulRjAiqF35bAVi92JjJ2AeALUaXFmUC9BbgIHQI2W",
+                "driver": "oracle.jdbc.OracleDriver",
+                "subtype": "oraJDBC",
+                "port": "1521",
+                "OS_AUTHENTICATION": "false",
+                "IS_PROXY": "false",
+                "KERBEROS_AUTHENTICATION": "false",
+                "user": "LOS_VERDINOS_BD",
+                "PROXY_USER_NAME": "",
+                "ExportKeyChecksum": "uCARgcnJuxdUag5Zmr1JKcHj687JMBa6cOFXjRYm2iDuseS7"
+            },
+            "name": "LOS_VERDINOS_BD",
+            "type": "jdbc"
+        }
+    ]
+}

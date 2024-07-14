@@ -1,0 +1,49 @@
+/* Estilos globales que están presentes en todas las páginas */
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* VARIABLES */
+:root {
+    /* COLORES */
+    --color-bg: #F2F2F2;
+    --color-primary: #4b6a32;
+    --color-secondary: #995C3E;
+    --color-bg-hover: #d4d4d4;
+}
+
+/* GLOBAL */
+* {
+    font-family: 'Nunito Sans', Arial, Calibri, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background-color: var(--color-bg);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 64px;
+}
+
+h1,
+h2,
+form label {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+
+/* DESKTOP */
+@media (min-width: 800px) {
+    .align-padding {
+        padding: 88px 128px;
+    }
+
+}

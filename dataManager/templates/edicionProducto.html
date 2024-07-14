@@ -1,0 +1,70 @@
+{% extends "./base.html" %} 
+
+{% block title %} Editar producto {% endblock %}
+
+{% block body %}
+<h2>Editar PRODUCTO ID {{producto.id_prod}}</h2>
+<div class="card">
+  <form action="/editarProducto/" method="POST">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+        <label for="inputId">ID</label>
+        <input
+          type="text"
+          name="inputId"
+          class="form-control"
+          id="inputId"
+          value="{{producto.id_prod}}" readonly
+        />
+      </div>
+    <div class="form-group mb-3">
+      <label for="inputName">Nombre</label>
+      <input
+        type="text"
+        name="inputName"
+        class="form-control"
+        id="inputName"
+        value="{{producto.nombre}}"
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="inputStock">Stock</label>
+      <input
+        type="text"
+        name="inputStock"
+        class="form-control"
+        id="inputStock"
+        value="{{producto.stock}}"
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="inputPrice">Precio</label>
+      <input
+        type="number"
+        name="inputPrice"
+        class="form-control"
+        id="inputPrice"
+        value="{{producto.precio}}"
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="inputDesc">Descuento</label>
+      <input
+        type="number"
+        name="inputDesc"
+        class="form-control"
+        id="inputDesc"
+        step="0.01"
+        max="0.99"
+        placeholder="{{producto.descuento}}"
+      />
+    </div>
+
+    <a href="/dashboard" class="btn btn-primary">Volver</a>
+    <button type="submit" class="btn btn-success">Editar</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "./base.html" %} 
+
+{% block title %}Dashboard | Administrador de datos{% endblock %} 
+
+
+{% block body %}
+<h1>Dashboard</h1>
+<h2>Productos</h2>
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descuento</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for p in productos %}
+          <tr>
+            <th scope="row">{{p.id_prod}}</th>
+            <td>{{p.nombre}}</td>
+            <td>{{p.stock}}</td>
+            <td>${{p.precio}}</td>
+            <td>{{p.descuento}}</td>
+            <td>
+              <a class="btn btn-primary" href="/edicionProducto/{{p.id_prod}}"
+                >Editar</a
+              >
+            </td>
+            <td>
+              <a class="btn btn-danger" href="/eliminarProducto/{{p.id_prod}}"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card">
+      <form action="/agregarProducto/" method="POST">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+          <label for="inputName">Nombre</label>
+          <input
+            type="text"
+            name="inputName"
+            class="form-control"
+            id="inputName"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="inputStock">Stock</label>
+          <input
+            type="text"
+            name="inputStock"
+            class="form-control"
+            id="inputStock"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="inputPrice">Precio</label>
+          <input
+            type="number"
+            name="inputPrice"
+            class="form-control"
+            id="inputPrice"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="inputDesc">Descuento</label>
+          <input
+            type="number"
+            name="inputDesc"
+            class="form-control"
+            id="inputDesc"
+            step="0.01"
+            min="0"
+            max="0.99"
+            value="{{producto.descuento}}"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

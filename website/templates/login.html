@@ -1,0 +1,32 @@
+{% extends "./base.html" %}
+{% load static %}
+
+
+<!-- TITLE -->
+{% block title %}Los Verdinos | Iniciar sesión{% endblock %}
+
+
+<!-- BODY -->
+{% block body %}
+
+<div class="align-padding">
+    <header>
+        <h1>Iniciar sesión</h1>
+    </header>
+
+
+    <form class="login-form">
+        <div class="form-group mb-3">
+            <label for="email"><sup>(*)</sup>Correo electrónico</label>
+            <input type="email" name="email" class="form-control" id="inputEmail">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="pass"><sup>(*)</sup>Contraseña</label>
+            <input type="password" name="pass" class="form-control" id="inputPass">
+        </div>
+
+        <button type="submit">Iniciar sesión</button>
+    </form>
+</div>
+{% endblock %}

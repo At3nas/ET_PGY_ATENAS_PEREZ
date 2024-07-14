@@ -1,0 +1,87 @@
+{% extends "./base.html" %}
+{% load static %}
+
+
+<!-- TITLE -->
+{% block title %}Los Verdinos | Contáctanos{% endblock %}
+
+
+<!-- BODY -->
+{% block body %}
+
+<div class="align-padding">
+    <header>
+        <h1>Contáctanos</h1>
+        <p>Si tienes alguna consulta o sugerencia estamos dispuestos a ayudarte a la brevedad posible. Contáctanos a
+            través de nuestros canales oficiales.</p>
+
+        <div class="container text-center section-contact-info">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <img src="{% static 'website/assets/icon-phone.svg' %}" class="img-fluid">
+                    +56 9 1234 5678
+                </div>
+
+                <div class="col">
+                    <img src="{% static 'website/assets/icon-email.svg' %}" class="img-fluid">
+                    contacto.verdinos@gmail.com
+                </div>
+
+                <div class="col">
+                    <img src="{% static 'website/assets/icon-location.svg' %}" class="img-fluid">
+                    Santa Isabel 380
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <form class="contact-form container">
+            <div class="form-group mb-3">
+                <label for="inputName" class="form-label"><sup>(*)</sup>Nombre</label>
+                <input type="text" name="inputName" class="form-control" id="inputName" placeholder="Ingrese su nombre"
+                    required>
+
+                <div class="invalid-feedback">
+                    Este campo es obligatorio.
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="inputEmail" class="form-label"><sup>(*)</sup>Correo electrónico</label>
+                <input type="email" name="inputEmail" class="form-control" id="inputEmail"
+                    placeholder="Ingrese su correo electrónico">
+
+                <div class="invalid-feedback">
+                    Por favor, ingrese un correo electrónico válido.
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="motivo" class="form-label"><sup>(*)</sup>Motivo</label>
+                <select name="motivo" class="form-select" id="inputMotivo">
+                    <option value="0" selected>Seleccione una opción</option>
+                    <option value="1">Consulta</option>
+                    <option value="2">Reclamo</option>
+                    <option value="3">Sugerencia</option>
+                    <option value="4">Felicitación</option>
+                    <option value="5">Otro</option>
+                </select>
+
+                <div class="invalid-feedback">
+                    Por favor, seleccione una de las opciones.
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="inputDesc" class="form-label"><sup>(*)</sup>Descripción</label>
+                <textarea class="form-control" id="inputDesc" rows="4"></textarea>
+
+                <div class="invalid-feedback">
+                    Este campo es obligatorio.
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">Enviar</button>
+        </form>
+</div>
+{% endblock %}

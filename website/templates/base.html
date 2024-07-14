@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'pages/assets/favicon.png' %}">
+
+    <!-- CUSTOM | CSS -->
+    <link rel="stylesheet" href="{% static 'website/styles/global.css' %}">
+    <link rel="stylesheet" href="{% static 'website/styles/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'website/styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'website/styles/contacto.css' %}">
+
+    <!-- BOOTSTRAP | CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- JQUERY | JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-xl navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'website/assets/logo.svg' %}">
+                Los Verdinos
+            </a>
+
+            <!-- COLLAPSE BUTTON -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <!-- INICIO -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Inicio</a>
+                    </li>
+
+                    <!-- NOSOTROS -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/nosotros">Nosotros</a>
+                    </li>
+
+                    <!-- CONTACTO -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto">Contacto</a>
+                    </li>
+
+
+
+                    <!-- PRODUCTOS -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/productos">Productos</a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="navbar-right">
+                    <div class="dropdown-center">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src={% static 'website/assets/icon-user.svg' %}>
+                        </a>
+
+                        <!-- OPCIONES DEL MENU DESPLEGABLE -->
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/iniciarSesion">Iniciar sesión</a></li>
+                            <li><a class="dropdown-item" href="/registrarse">Registrarse</a></li>
+                        </ul>
+                    </div>
+
+                    <a class="nav-link" href="/carrito">
+                        <img src="{% static 'website/assets/icon-cart.svg' %}">
+                    </a>
+                </div>
+            </div>
+    </nav>
+
+
+    <main>
+        <!-- SEARCH BAR -->
+        <div class="d-flex">
+            <form class="form-control me-2" role="search">
+                <input type="search" placeholder="Buscar productos" aria-label="Search">
+                <!-- SEARCH BUTTON -->
+                <button class="btn btn-outline-success" type="submit">
+                    <img src={% static 'website/assets/icon-search.svg' %}>
+                </button>
+            </form>
+        </div>
+        {% block body %}
+
+        {% endblock %}
+    </main>
+
+    <!-- BOOTSTRAP | JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+@import './global.css';
+
+
+/* NAVBAR */
+nav.navbar.navbar-expand-xl.navbar-dark {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+div#navbarSupportedContent.collapse.navbar-collapse {
+    flex-grow: unset;
+    /* permite que los elementos tomen solo el espacio necesario */
+}
+
+/* ELEMENTOS DEL NAVBAR | BRAND, NAV-ITEMS, BOTONES */
+nav.navbar.navbar-expand-xl.navbar-dark div.container-fluid {
+    width: 100%;
+    padding: 8px 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* BOTONES DE SESION Y CARRITO */
+nav div.container-fluid div.navbar-collapse div.navbar-right {
+    display: flex;
+    gap: 16px;
+}
+
+a.nav-link.dropdown-toggle {
+    padding: 0;
+    /* hace que los iconos de sesión y carrito estén alineados */
+}
+
+/* ELEMENTOS DE MARCA | LOGO Y NOMBRE DE EMPRESA */
+a.navbar-brand {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
