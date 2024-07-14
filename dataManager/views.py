@@ -5,10 +5,34 @@ from .models import CategoriaProducto, Compra, Despacho, DetalleCompra, EstadoDe
 
 # Create your views here.
 
-# Renderiza la vista Dashboard
+# ---- DATA MANAGER | VISTAS ---- #
+# VISTA | DASHBOARD #
 def dashboard(request):
+   return render(request, "dashboard.html")
+
+# VISTA | PRODUCTOS #
+def dmProductos(request):
     listaProductos = Producto.objects.all()
-    return render(request, "dashboard.html", {"productos": listaProductos})
+    return render(request, "dmProductos.html", {"productos": listaProductos})
+
+# VISTA | USUARIOS #
+def dmUsuarios(request):
+    listaUsuarios = Usuario.objects.all()
+    return render(request, "dmUsuarios.html", {"usuarios": listaUsuarios})
+
+# VISTA | COMPRAS #
+def dmCompras(request):
+    listaCompras = Compra.objects.all()
+    return render(request, "dmCompras.html", {"compras": listaCompras})
+
+# VISTA | CATEGORIA_PRODUCTOS #
+def dmCategProd(request):
+    listaCategoria = CategoriaProducto.objects.all()
+    return render(request, "dmCategProd.html", {"categorias": listaCategoria})
+
+
+
+
 
 # Renderiza la vista Edición de Producto
 def edicionProducto(request, id):
