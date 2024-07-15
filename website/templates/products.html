@@ -9,16 +9,17 @@
 <!-- BODY -->
 {% block body %}
 
-<div class="align-padding">
-    {% for p in listaProductos %}
-    <div class="card" style="width: 18rem;">
-      <img src="{% static 'pages/assets/productos/' %}{{ p.nombre }}.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{p.nombre}}</h5>
-        <p class="card-text">${{p.precio}}</p>
-        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-      </div>
+<div class="card-group">
+  {% for p in productos %}
+  <div class="card me-8" style="width: 18rem;">
+    <img src="{% static 'website/assets/productos/' %}{{ p.nombre_producto }}.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p.nombre_producto}}</h5>
+      <p class="card-text"><small class="text-body-secondary">${{p.precio}}</small></p>
+      <a href="#" class="btn btn-primary">Añadir al carrito</a>
     </div>
-    {% endfor %}
+  </div>
+  {% endfor %}
 </div>
+
 {% endblock %}

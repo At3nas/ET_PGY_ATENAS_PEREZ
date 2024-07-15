@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from dataManager.models import Usuario
-
+from dataManager.models import Usuario, Producto
+import base64
 
 # Views
 # ---- RENDERIZADO ---- #
@@ -20,7 +20,8 @@ def pagContact(request):
 
 # Página | Productos
 def pagProducts(request):
-    return render(request, "products.html")
+    listaProductos = Producto.objects.all()
+    return render(request, "products.html", {"productos": listaProductos})
 
 # Página | Iniciar Sesión
 def pagLogin(request):

@@ -1,0 +1,53 @@
+{% extends "./baseData.html" %}
+
+{% block title %}Data Manager | Categoria_Producto{% endblock %}
+
+
+{% block body %}
+<h2>Categoria_Producto</h2>
+
+<div class="card mb-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID_CATEGORIA</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">OPCIONES</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for c in categorias %}
+            <tr>
+                <th scope="row">{{c.id_categoria}}</th>
+                <td>{{c.nombre_categoria}}</td>
+                <td>
+                    <a class="btn btn-primary" href="/edicionProducto/{{p.id_prod}}">Editar</a>
+                    <a class="btn btn-danger" href="/eliminarProducto/{{p.id_prod}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<h3>Agregar</h3>
+<div class="card">
+    <form action="/agregarCategoria/" method="POST">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="inputId">ID</label>
+            <input type="number" name="inputId" class="form-control" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="inputName">Nombre</label>
+            <input type="text" name="inputName" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+
+{% endblock %}

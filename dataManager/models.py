@@ -18,10 +18,9 @@ class CategoriaProducto(models.Model):
 
 
 class Compra(models.Model):
-    id_compra = models.AutoField(primary_key=True)
+    id_compra = models.SmallAutoField(primary_key=True)
     id_usuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_usuario')
     fecha_compra = models.DateField()
-    porc_dcto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     total = models.IntegerField()
 
     class Meta:
@@ -29,8 +28,17 @@ class Compra(models.Model):
         db_table = 'compra'
 
 
+class DescuentoProducto(models.Model):
+    id_dcto = models.SmallAutoField(primary_key=True)
+    porc_dcto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'descuento_producto'
+
+
 class Despacho(models.Model):
-    id_despacho = models.AutoField(primary_key=True)
+    id_despacho = models.SmallAutoField(primary_key=True)
     direccion = models.CharField(max_length=50)
     valor_envio = models.IntegerField()
     fecha_entrega = models.DateField()
@@ -53,6 +61,7 @@ class DetalleCompra(models.Model):
         unique_together = (('id_compra', 'id_producto'),)
 
 
+
 class EstadoDespacho(models.Model):
     id_estado = models.IntegerField(primary_key=True)
     descripcion_estado = models.CharField(max_length=40)
@@ -63,12 +72,14 @@ class EstadoDespacho(models.Model):
 
 
 class Producto(models.Model):
-    id_producto = models.AutoField(primary_key=True)
+    id_producto = models.SmallAutoField(primary_key=True)
     nombre_producto = models.CharField(max_length=40)
     stock = models.IntegerField()
     precio = models.IntegerField()
     descripcion = models.CharField(max_length=150, blank=True, null=True)
-    id_categoria = models.ForeignKey(CategoriaProducto, models.DO_NOTHING, db_column='id_categoria', blank=True, null=True)
+    imagen = models.BinaryField(blank=True, null=True)
+    id_categoria = models.ForeignKey(CategoriaProducto, models.DO_NOTHING, db_column='id_categoria')
+    id_dcto = models.ForeignKey(DescuentoProducto, models.DO_NOTHING, db_column='id_dcto', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -86,7 +97,7 @@ class Suscriptor(models.Model):
 
 
 class Usuario(models.Model):
-    id_usuario = models.AutoField(primary_key=True)
+    id_usuario = models.SmallAutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     email = models.CharField(max_length=50)

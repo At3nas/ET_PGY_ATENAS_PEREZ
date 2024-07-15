@@ -1,0 +1,50 @@
+{% extends "./baseData.html" %}
+
+{% block title %}Data Manager | Descuento_Producto{% endblock %}
+
+{% block body %}
+<h2>Descuento_Producto</h2>
+<div class="card mb-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID_DCTO</th>
+                <th scope="col">PORC_DCTO</th>
+                <th scope="col">OPCIONES</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for d in descuentos %}
+            <tr>
+                <th scope="row">{{d.id_dcto}}</th>
+                <td>{{d.porc_dcto}}</td>
+                <td>
+                    <a class="btn btn-primary" href="/edicionProducto/{{p.id_prod}}">Editar</a>
+                    <a class="btn btn-danger" href="/eliminarProducto/{{p.id_prod}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<h3>Agregar</h3>
+<div class="card">
+    <form action="/agregarDescuento/" method="POST">
+        {% csrf_token %}
+        <!-- <div class="form-group mb-3">
+            <label for="inputId">ID</label>
+            <input type="number" name="inputId" class="form-control" />
+        </div> -->
+
+        <div class="form-group mb-3">
+            <label for="inputPorc">Porcentaje de descuento</label>
+            <input type="number" name="inputPorc" step="0.1" min="0" max="0.99" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+{% endblock %}
