@@ -1,0 +1,32 @@
+/* BANNER DE CONTACTO */
+div.section-contact-info {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: 16px;
+    border-radius: 20px;
+}
+
+div.row.row-cols-auto {
+    display: flex;
+    gap: 16px;
+}
+
+div.col {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/* BREAKPOINTS */
+@media (min-width: 890px) {
+    div.section-contact-info {
+        border-radius: 80px;
+    }
+
+    div.row.row-cols-auto {
+        justify-content: space-evenly;
+    }
+}

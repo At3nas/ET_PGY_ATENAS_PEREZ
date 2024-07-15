@@ -18,6 +18,7 @@
     padding: 0;
     margin: 0;
     box-sizing: content-box;
+    /* border: 1px solid black !important; */
 }
 
 body {
@@ -35,8 +36,23 @@ header {
 h1,
 h2,
 form label {
-    font-weight: bold;
-    color: var(--color-primary);
+    font-weight: bold !important;
+    color: var(--color-primary) !important;
+}
+
+/* FORMULARIOS */
+form button {
+    padding: 16px 32px;
+    border-radius: 40px;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    transition: background-color 700ms;
+    border: none;
+}
+
+form button:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-bg);
 }
 
 
